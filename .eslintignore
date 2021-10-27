@@ -1,0 +1,6 @@
+node_modules
+/dist
+.yarn
+tailwind.config.js
+postcss.config.js
+vite.config.ts

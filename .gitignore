@@ -1,0 +1,19 @@
+# defaults
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+
+# yarn berry
+.yarn/*
+# !.yarn/cache
+# !.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+# !.yarn/versions
+
+# the project
+/*.log
+playground
