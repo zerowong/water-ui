@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { Icon } from './icon'
+import { inputValueToStr } from '../utils'
 
 type TextAreaProps = JSX.IntrinsicElements['textarea'] & {
   /**
@@ -75,19 +76,6 @@ export function TextArea(props: TextAreaProps) {
     onBlur?.(e)
   }
 
-  const valueToStr = (arg: typeof value) => {
-    if (typeof arg === 'string') {
-      return arg
-    }
-    if (typeof arg === 'number') {
-      return arg.toString()
-    }
-    if (arg instanceof Array) {
-      return arg.join(',')
-    }
-    return ''
-  }
-
   const resetValue = () => {
     if (value === undefined || value === null) {
       setInnerValue('')
@@ -130,7 +118,7 @@ export function TextArea(props: TextAreaProps) {
         as="span"
         show={
           clearable &&
-          valueToStr(value ?? innerValue).length > 0 &&
+          inputValueToStr(value ?? innerValue).length > 0 &&
           wrapperHover &&
           !disabled
         }
