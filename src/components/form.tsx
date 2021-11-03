@@ -1,6 +1,6 @@
 import React, { Children, isValidElement, cloneElement } from 'react'
 import classNames from 'classnames'
-import { ComponentIdentifier } from '../utils/constants'
+import { ComponentIdentifier } from '../utils'
 
 interface FormColumn {
   span?: number

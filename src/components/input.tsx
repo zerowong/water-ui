@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, createElement } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
-import { Icon } from './icon'
-import { inputValueToStr } from '../utils'
+import { XCircleIcon, EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
+import { inputValueToStr, ComponentIdentifier } from '../utils'
 
-type InputProps = JSX.IntrinsicElements['input'] & {
+interface InputProps extends React.ComponentProps<'input'> {
   /**
    * 容器类名
    */
@@ -50,7 +50,7 @@ export function Input(props: InputProps) {
     ...rest
   } = props
 
-  const [innerValue, setInnerValue] = useState(defaultValue)
+  const [innerValue, setInnerValue] = useState(defaultValue ?? '')
   const handleValueChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setInnerValue(e.target.value)
   }
@@ -85,15 +85,13 @@ export function Input(props: InputProps) {
   const renderIcon = (type?: string) => {
     switch (type) {
       case 'password':
-        return (
-          <Icon
-            name={innerType === 'password' ? 'eye-close' : 'eye'}
-            className="text-gray-400 cursor-pointer hover:text-gray-500 text-lg ml-2"
-            onClick={() => {
-              setInnerType(innerType === 'password' ? 'text' : 'password')
-            }}
-          />
-        )
+        return createElement(innerType === 'password' ? EyeOffIcon : EyeIcon, {
+          className:
+            'text-gray-400 cursor-pointer hover:text-gray-500 text-lg ml-2 heroicon-solid',
+          onClick() {
+            return setInnerType(innerType === 'password' ? 'text' : 'password')
+          },
+        })
       default:
         return (
           <Transition
@@ -112,9 +110,8 @@ export function Input(props: InputProps) {
             leaveTo="transform-gpu opacity-0 scale-0"
             className="ml-2"
           >
-            <Icon
-              name="close-fill"
-              className="text-gray-400 cursor-pointer hover:text-gray-500"
+            <XCircleIcon
+              className="text-gray-400 cursor-pointer hover:text-gray-500 heroicon-solid"
               onClick={resetValue}
             />
           </Transition>
@@ -158,3 +155,5 @@ export function Input(props: InputProps) {
     </div>
   )
 }
+
+Input.prototype.$$typeof = Symbol.for(ComponentIdentifier.Input)

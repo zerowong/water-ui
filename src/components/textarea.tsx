@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
-import { Icon } from './icon'
-import { inputValueToStr } from '../utils'
+import { XCircleIcon } from '@heroicons/react/solid'
+import { inputValueToStr, ComponentIdentifier } from '../utils'
 
-type TextAreaProps = JSX.IntrinsicElements['textarea'] & {
+interface TextAreaProps extends React.ComponentProps<'textarea'> {
   /**
    * 容器类名
    */
@@ -130,12 +130,13 @@ export function TextArea(props: TextAreaProps) {
         leaveTo="transform-gpu opacity-0 scale-0"
         className="ml-2"
       >
-        <Icon
-          name="close-fill"
-          className="text-gray-400 cursor-pointer hover:text-gray-500"
+        <XCircleIcon
+          className="text-gray-400 cursor-pointer hover:text-gray-500 heroicon-solid"
           onClick={resetValue}
         />
       </Transition>
     </div>
   )
 }
+
+TextArea.prototype.$$typeof = Symbol.for(ComponentIdentifier.TextArea)

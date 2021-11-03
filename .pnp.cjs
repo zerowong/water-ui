@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["@headlessui/react", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.4.1"],
+            ["@heroicons/react", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.0.5"],
             ["@types/react", "npm:17.0.33"],
             ["@types/react-dom", "npm:17.0.10"],
             ["@typescript-eslint/eslint-plugin", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:4.33.0"],
@@ -512,6 +513,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react-dom",
             "@types/react",
             "react-dom",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@heroicons/react", [
+        ["npm:1.0.5", {
+          "packageLocation": "./.yarn/cache/@heroicons-react-npm-1.0.5-c693e41c9d-12114af19c.zip/node_modules/@heroicons/react/",
+          "packageDependencies": [
+            ["@heroicons/react", "npm:1.0.5"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.0.5", {
+          "packageLocation": "./.yarn/__virtual__/@heroicons-react-virtual-4462c2272e/0/cache/@heroicons-react-npm-1.0.5-c693e41c9d-12114af19c.zip/node_modules/@heroicons/react/",
+          "packageDependencies": [
+            ["@heroicons/react", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.0.5"],
+            ["@types/react", "npm:17.0.33"],
+            ["react", "npm:17.0.2"]
+          ],
+          "packagePeers": [
+            "@types/react",
             "react"
           ],
           "linkType": "HARD",
@@ -4975,6 +4998,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["water-ui", "workspace:."],
             ["@headlessui/react", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.4.1"],
+            ["@heroicons/react", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:1.0.5"],
             ["@types/react", "npm:17.0.33"],
             ["@types/react-dom", "npm:17.0.10"],
             ["@typescript-eslint/eslint-plugin", "virtual:493a8dddc56bb8750639b0eefeaab372f0e9deb61fdc62afd785340dde56403fb8ba3ce3dca69187ded9ab6e865fa9174b24daf5ef951fb72e0ebb2dccc3f187#npm:4.33.0"],

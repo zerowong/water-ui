@@ -6,9 +6,6 @@ module.exports = {
   darkMode: false,
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-      },
       spacing: {
         '75': '18.75rem',
       },

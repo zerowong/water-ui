@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.5",
     "classnames": "^2.3.1"
   },
   "peerDependencies": {

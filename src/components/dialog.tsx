@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import { Dialog as HeadlessDialog, Transition } from '@headlessui/react'
 import classNames from 'classnames'
+import { ComponentIdentifier } from '../utils'
 
 type DialogProps = Parameters<typeof HeadlessDialog>[0] & {
   /**
@@ -81,3 +82,5 @@ export function Dialog(props: DialogProps) {
     </Transition>
   )
 }
+
+Dialog.prototype.$$typeof = Symbol.for(ComponentIdentifier.Dialog)

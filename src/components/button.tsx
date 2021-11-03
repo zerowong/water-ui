@@ -2,8 +2,9 @@ import React from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { LoadingIcon } from './icon'
+import { ComponentIdentifier } from '../utils'
 
-type ButtonProps = JSX.IntrinsicElements['button'] & {
+interface ButtonProps extends React.ComponentProps<'button'> {
   /**
    * 加载态，加载时按钮为`disabled`状态
    */
@@ -116,3 +117,5 @@ export function Button(props: ButtonProps) {
     </button>
   )
 }
+
+Button.prototype.$$typeof = Symbol.for(ComponentIdentifier.Button)

@@ -12,3 +12,15 @@ export function inputValueToStr(
   }
   return ''
 }
+
+/**
+ * 组件标识
+ */
+export const ComponentIdentifier = {
+  Form: 'water-ui/form',
+  FormItem: 'water-ui/form-item',
+  Button: 'water-ui/button',
+  Input: 'water-ui/input',
+  TextArea: 'water-ui/textarea',
+  Dialog: 'water-ui/dialog',
+}
