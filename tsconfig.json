@@ -11,9 +11,19 @@
     "moduleResolution": "Node",
     "isolatedModules": true,
     "noEmit": true,
+    "noEmitOnError": true,
+    "removeComments": true,
     "jsx": "react",
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "declaration": true
   },
-  "include": ["src", "playground"],
-  "exclude": ["tailwind.config.js", "postcss.config.js", "vite.config.ts"]
+  "include": ["src"],
+  "exclude": [
+    "tailwind.config.js",
+    "postcss.config.js",
+    "vite.config.ts",
+    "esm",
+    "lib",
+    "umd"
+  ]
 }

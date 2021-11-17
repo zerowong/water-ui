@@ -17,3 +17,6 @@ dist-ssr
 # the project
 /*.log
 playground
+esm
+umd
+lib

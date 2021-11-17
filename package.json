@@ -1,5 +1,5 @@
 {
-  "name": "water-ui",
+  "name": "@zerowong/water-ui",
   "version": "0.0.1",
   "description": "A UI components library for React",
   "author": {
@@ -12,10 +12,19 @@
     "type": "git",
     "url": "https://github.com/zerowong/water-ui.git"
   },
+  "files": [
+    "esm",
+    "lib",
+    "README.md"
+  ],
+  "main": "lib/index.js",
+  "module": "esm/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview"
+    "build": "./scripts/build.sh",
+    "build:umd": "tsc && vite build",
+    "serve": "vite preview",
+    "publish": "./scripts/publish.sh"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
