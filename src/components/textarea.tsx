@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { XCircleIcon } from '@heroicons/react/solid'
-import { inputValueToStr, ComponentIdentifier } from '../utils'
+import { inputValueToStr, ComponentIdentifier, heroiconSolid } from '../utils'
 
 interface TextAreaProps extends React.ComponentProps<'textarea'> {
   /**
@@ -131,7 +131,10 @@ export function TextArea(props: TextAreaProps) {
         className="ml-2"
       >
         <XCircleIcon
-          className="text-gray-400 cursor-pointer hover:text-gray-500 heroicon-solid"
+          className={classNames(
+            'text-gray-400 cursor-pointer hover:text-gray-500',
+            heroiconSolid
+          )}
           onClick={resetValue}
         />
       </Transition>

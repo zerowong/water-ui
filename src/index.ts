@@ -1,4 +1,3 @@
-import './index.css'
 export * from './components/icon'
 export * from './components/button'
 export * from './components/dialog'

@@ -1,12 +1,13 @@
 import React from 'react'
 import classNames from 'classnames'
+import { heroiconSolid } from '../utils'
 
 export function LoadingIcon(props: React.ComponentProps<'svg'>) {
   const { className, ...rest } = props
 
   return (
     <svg
-      className={classNames('heroicon-solid animate-spin mr-1', className)}
+      className={classNames('animate-spin mr-1', heroiconSolid, className)}
       viewBox="0 0 1024 1024"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}

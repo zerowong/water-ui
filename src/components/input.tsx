@@ -2,7 +2,7 @@ import React, { useState, createElement } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { XCircleIcon, EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
-import { inputValueToStr, ComponentIdentifier } from '../utils'
+import { inputValueToStr, ComponentIdentifier, heroiconSolid } from '../utils'
 
 interface InputProps extends React.ComponentProps<'input'> {
   /**
@@ -86,8 +86,10 @@ export function Input(props: InputProps) {
     switch (type) {
       case 'password':
         return createElement(innerType === 'password' ? EyeOffIcon : EyeIcon, {
-          className:
-            'text-gray-400 cursor-pointer hover:text-gray-500 text-lg ml-2 heroicon-solid',
+          className: classNames(
+            'text-gray-400 cursor-pointer hover:text-gray-500 text-lg ml-2',
+            heroiconSolid
+          ),
           onClick() {
             return setInnerType(innerType === 'password' ? 'text' : 'password')
           },
@@ -111,7 +113,10 @@ export function Input(props: InputProps) {
             className="ml-2"
           >
             <XCircleIcon
-              className="text-gray-400 cursor-pointer hover:text-gray-500 heroicon-solid"
+              className={classNames(
+                'text-gray-400 cursor-pointer hover:text-gray-500',
+                heroiconSolid
+              )}
               onClick={resetValue}
             />
           </Transition>
