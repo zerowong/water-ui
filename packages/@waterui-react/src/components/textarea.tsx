@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { XCircleIcon } from '@heroicons/react/solid'
-import { inputValueToStr, ComponentIdentifier, heroiconSolid } from '../utils'
+import { inputValueToStr, ComponentIdentifier } from '../utils'
 
 interface TextAreaProps extends React.ComponentProps<'textarea'> {
   /**
@@ -50,9 +50,7 @@ export function TextArea(props: TextAreaProps) {
   } = props
 
   const [innerValue, setInnerValue] = useState(defaultValue)
-  const handleValueChange: React.ChangeEventHandler<HTMLTextAreaElement> = (
-    e
-  ) => {
+  const handleValueChange: React.ChangeEventHandler<HTMLTextAreaElement> = (e) => {
     setInnerValue(e.target.value)
   }
 
@@ -65,9 +63,7 @@ export function TextArea(props: TextAreaProps) {
   }
 
   const [inputIsFocus, setInputIsFocus] = useState(false)
-  const handleInputFocus: React.FocusEventHandler<HTMLTextAreaElement> = (
-    e
-  ) => {
+  const handleInputFocus: React.FocusEventHandler<HTMLTextAreaElement> = (e) => {
     setInputIsFocus(true)
     onFocus?.(e)
   }
@@ -131,10 +127,7 @@ export function TextArea(props: TextAreaProps) {
         className="ml-2"
       >
         <XCircleIcon
-          className={classNames(
-            'text-gray-400 cursor-pointer hover:text-gray-500',
-            heroiconSolid
-          )}
+          className="text-gray-400 cursor-pointer hover:text-gray-500 icon"
           onClick={resetValue}
         />
       </Transition>

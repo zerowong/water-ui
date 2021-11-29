@@ -24,6 +24,3 @@ export const ComponentIdentifier = {
   TextArea: 'water-ui/textarea',
   Dialog: 'water-ui/dialog',
 }
-
-export const heroiconSolid = 'w-5 h-5 overflow-hidden inline-block'
-export const heroiconOutline = 'w-6 h-6 overflow-hidden inline-block'

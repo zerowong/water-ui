@@ -13,8 +13,9 @@ export default defineConfig(({ mode }) => {
       outDir: 'umd',
       lib: {
         entry: 'src/index.ts',
-        name: 'WaterUI',
+        name: 'WaterUIReact',
         formats: ['umd'],
+        fileName: 'waterui-react'
       },
       rollupOptions: {
         external: ['react'],

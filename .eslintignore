@@ -1,6 +1,11 @@
 node_modules
-/dist
 .yarn
+.pnp.cjs
+.pnp.loader.mjs
 tailwind.config.js
 postcss.config.js
 vite.config.ts
+esm
+cjs
+umd
+w

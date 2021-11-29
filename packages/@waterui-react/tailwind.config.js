@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 module.exports = {
@@ -50,9 +49,6 @@ module.exports = {
       white: colors.white,
       black: colors.black,
       red: colors.red,
-    },
-    screens: {
-      md: defaultTheme.screens.md,
     },
   },
   variants: {

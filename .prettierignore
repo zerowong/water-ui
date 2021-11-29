@@ -1,3 +1,7 @@
 node_modules
-/dist
 .yarn
+.pnp.cjs
+.pnp.loader.mjs
+esm
+cjs
+umd

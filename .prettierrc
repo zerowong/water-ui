@@ -1,5 +1,6 @@
 {
   "singleQuote": true,
   "semi": false,
-  "quoteProps": "preserve"
+  "quoteProps": "preserve",
+  "printWidth": 90
 }

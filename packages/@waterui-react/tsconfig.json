@@ -1,8 +1,8 @@
 {
+  "include": ["src", "playground"],
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "strict": true,
@@ -16,14 +16,5 @@
     "jsx": "react",
     "baseUrl": "./",
     "declaration": true
-  },
-  "include": ["src"],
-  "exclude": [
-    "tailwind.config.js",
-    "postcss.config.js",
-    "vite.config.ts",
-    "esm",
-    "lib",
-    "umd"
-  ]
+  }
 }

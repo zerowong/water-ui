@@ -1,8 +1,6 @@
 # defaults
 node_modules
 .DS_Store
-dist
-dist-ssr
 *.local
 
 # yarn berry
@@ -15,8 +13,9 @@ dist-ssr
 # !.yarn/versions
 
 # the project
-/*.log
+*.log
 playground
 esm
 umd
-lib
+cjs
+packages/**/index.css
