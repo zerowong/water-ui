@@ -1,7 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
 
-export function LoadingIcon(props: React.ComponentProps<'svg'>) {
+interface IconProps extends React.ComponentProps<'svg'> {}
+
+export function LoadingIcon(props: IconProps) {
   const { className, ...rest } = props
 
   return (

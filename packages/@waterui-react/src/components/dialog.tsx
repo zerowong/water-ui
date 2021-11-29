@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 import { Dialog as HeadlessDialog, Transition } from '@headlessui/react'
 import classNames from 'classnames'
 import { ComponentIdentifier } from '../utils'
@@ -22,14 +22,7 @@ type DialogProps = Parameters<typeof HeadlessDialog>[0] & {
  * 对话框
  */
 export function Dialog(props: DialogProps) {
-  const {
-    open = false,
-    children,
-    title,
-    description,
-    centered,
-    ...rest
-  } = props
+  const { open = false, children, title, description, centered, ...rest } = props
 
   return (
     <Transition show={open} as={Fragment}>

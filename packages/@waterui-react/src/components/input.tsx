@@ -1,4 +1,4 @@
-import React, { useState, createElement } from 'react'
+import { useState, createElement } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { XCircleIcon, EyeIcon, EyeOffIcon } from '@heroicons/react/solid'

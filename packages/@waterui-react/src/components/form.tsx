@@ -1,13 +1,13 @@
-import React, { Children, isValidElement, cloneElement } from 'react'
+import { Children, isValidElement, cloneElement } from 'react'
 import classNames from 'classnames'
 import { ComponentIdentifier } from '../utils'
 
-interface FormColumn {
+export interface FormColumn {
   span?: number
   offest?: number
 }
 
-type FormValues = Record<string, any>
+export type FormValues = Record<string, any>
 
 export interface FormProps {
   children?: React.ReactNode
@@ -35,8 +35,7 @@ export function Form(props: FormProps) {
         if (
           isValidElement(item) &&
           typeof item.type !== 'string' &&
-          item.type.prototype.$$typeof ===
-            Symbol.for(ComponentIdentifier.FormItem)
+          item.type.prototype.$$typeof === Symbol.for(ComponentIdentifier.FormItem)
         ) {
           const mergedProps = {
             labelCol: item.props.labelCol ?? labelCol,
@@ -51,7 +50,7 @@ export function Form(props: FormProps) {
   )
 }
 
-interface FormItemProps {
+export interface FormItemProps {
   children?: React.ReactNode
   label?: React.ReactNode
   labelCol?: FormColumn

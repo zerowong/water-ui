@@ -1,4 +1,3 @@
-import React from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { LoadingIcon } from './icon'
@@ -99,10 +98,7 @@ export function Button(props: ButtonProps) {
             <LoadingIcon />
           </Transition>
           <span
-            className={classNames(
-              'inline-block align-baseline',
-              iconWrapperClassName
-            )}
+            className={classNames('inline-block align-baseline', iconWrapperClassName)}
             style={iconWrapperStyle}
           >
             {icon && (loading ? <LoadingIcon /> : icon)}

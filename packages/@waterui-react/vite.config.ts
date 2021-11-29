@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import type { UserConfig } from 'vite'
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ mode }) => {
   const config: UserConfig = {
-    plugins: [reactRefresh()],
+    plugins: [react()],
     server: {
       port: 8083,
       open: true,
@@ -15,7 +15,7 @@ export default defineConfig(({ mode }) => {
         entry: 'src/index.ts',
         name: 'WaterUIReact',
         formats: ['umd'],
-        fileName: 'waterui-react'
+        fileName: 'waterui-react',
       },
       rollupOptions: {
         external: ['react'],
