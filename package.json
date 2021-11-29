@@ -18,11 +18,13 @@
   ],
   "scripts": {
     "react": "yarn workspace @waterui/react",
-    "build": "yarn workspaces foreach run build"
+    "build": "yarn workspaces foreach run build",
+    "vsc-sdks": "yarn dlx @yarnpkg/sdks vscode"
   },
   "devDependencies": {
-    "prettier": "^2.4.1",
-    "typescript": "^4.4.4"
+    "eslint": "^8.3.0",
+    "prettier": "^2.5.0",
+    "typescript": "^4.5.2"
   },
-  "packageManager": "yarn@3.1.0"
+  "packageManager": "yarn@3.1.1"
 }
