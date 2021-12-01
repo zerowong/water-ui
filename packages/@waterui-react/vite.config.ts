@@ -7,15 +7,17 @@ export default defineConfig(({ mode }) => {
     plugins: [react()],
     server: {
       port: 8083,
-      open: true,
     },
     build: {
-      outDir: 'umd',
+      outDir: 'dist',
+      sourcemap: true,
       lib: {
         entry: 'src/index.ts',
         name: 'WaterUIReact',
         formats: ['umd'],
-        fileName: 'waterui-react',
+        fileName() {
+          return `waterui-react.min.js`
+        },
       },
       rollupOptions: {
         external: ['react'],

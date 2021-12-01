@@ -4,7 +4,7 @@
   "compilerOptions": {
     "noEmit": false,
     "rootDir": "src",
-    "outDir": "esm",
+    "outDir": "dist/esm",
     "module": "ES6",
     "target": "ES6"
   }

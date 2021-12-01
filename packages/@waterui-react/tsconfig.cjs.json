@@ -4,7 +4,7 @@
   "compilerOptions": {
     "noEmit": false,
     "rootDir": "src",
-    "outDir": "cjs",
+    "outDir": "dist/cjs",
     "module": "CommonJS",
     "target": "ES6"
   }

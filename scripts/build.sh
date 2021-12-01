@@ -2,9 +2,11 @@
 
 set -e
 
-ts_config_esm="./tsconfig.esm.json"
-ts_config_cjs="./tsconfig.cjs.json"
-tsc="tsc -b"
+run="yarn run"
 
-$tsc $ts_config_esm
-$tsc $ts_config_cjs
+# must be first
+$run "build:umd"
+
+$run "build:esm"
+$run "build:cjs"
+$run "build:css"

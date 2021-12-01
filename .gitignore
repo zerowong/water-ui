@@ -15,7 +15,5 @@ node_modules
 # the project
 *.log
 playground
-esm
-umd
-cjs
-packages/**/index.css
+dist
+/scripts/*.json

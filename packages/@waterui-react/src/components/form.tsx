@@ -1,4 +1,4 @@
-import { Children, isValidElement, cloneElement } from 'react'
+import React, { Children, isValidElement, cloneElement } from 'react'
 import classNames from 'classnames'
 import { ComponentIdentifier } from '../utils'
 
@@ -57,6 +57,35 @@ export interface FormItemProps {
   wrapperCol?: FormColumn
 }
 
+const colSet = [
+  { 'start': '', 'end': '' },
+  { 'start': 'col-start-1', 'end': 'col-end-1' },
+  { 'start': 'col-start-2', 'end': 'col-end-2' },
+  { 'start': 'col-start-3', 'end': 'col-end-3' },
+  { 'start': 'col-start-4', 'end': 'col-end-4' },
+  { 'start': 'col-start-5', 'end': 'col-end-5' },
+  { 'start': 'col-start-6', 'end': 'col-end-6' },
+  { 'start': 'col-start-7', 'end': 'col-end-7' },
+  { 'start': 'col-start-8', 'end': 'col-end-8' },
+  { 'start': 'col-start-9', 'end': 'col-end-9' },
+  { 'start': 'col-start-10', 'end': 'col-end-10' },
+  { 'start': 'col-start-11', 'end': 'col-end-11' },
+  { 'start': 'col-start-12', 'end': 'col-end-12' },
+  { 'start': 'col-start-13', 'end': 'col-end-13' },
+  { 'start': 'col-start-[14]', 'end': 'col-end-[14]' },
+  { 'start': 'col-start-[15]', 'end': 'col-end-[15]' },
+  { 'start': 'col-start-[16]', 'end': 'col-end-[16]' },
+  { 'start': 'col-start-[17]', 'end': 'col-end-[17]' },
+  { 'start': 'col-start-[18]', 'end': 'col-end-[18]' },
+  { 'start': 'col-start-[19]', 'end': 'col-end-[19]' },
+  { 'start': 'col-start-[20]', 'end': 'col-end-[20]' },
+  { 'start': 'col-start-[21]', 'end': 'col-end-[21]' },
+  { 'start': 'col-start-[22]', 'end': 'col-end-[22]' },
+  { 'start': 'col-start-[23]', 'end': 'col-end-[23]' },
+  { 'start': 'col-start-[24]', 'end': 'col-end-[24]' },
+  { 'start': 'col-start-[25]', 'end': 'col-end-[25]' },
+]
+
 Form.Item = function FormItem(props: FormItemProps) {
   const {
     children,
@@ -65,35 +94,32 @@ Form.Item = function FormItem(props: FormItemProps) {
     wrapperCol = { span: 11, offest: 0 },
   } = props
 
-  if (labelCol && !labelCol.span) {
-    labelCol.span = 1
-  }
-
-  if (wrapperCol && !wrapperCol.span) {
-    wrapperCol.span = 11
-  }
-
-  const labelColClass = {
-    span: `col-span-${labelCol.span ?? 1}`,
-    offest: labelCol.offest ? `col-start-${labelCol.offest + 1}` : '',
-  }
-
-  const wrapperColClass = {
-    span: `col-span-${wrapperCol.span ?? 11}`,
-    offest: wrapperCol.offest
-      ? `col-start-${
-          wrapperCol.offest + (labelCol.span ?? 1) + (labelCol.offest ?? 0) + 1
-        }`
-      : '',
-  }
+  labelCol.span ?? (labelCol.span = 1)
+  labelCol.offest ?? (labelCol.offest = 0)
+  wrapperCol.span ?? (wrapperCol.span = 11)
+  wrapperCol.offest ?? (wrapperCol.offest = 0)
+  const wrapperColBase = labelCol.span + labelCol.offest + 1
 
   return (
-    <div className={classNames('grid grid-cols-24 items-center')}>
-      <label className={classNames(labelColClass.span, labelColClass.offest)}>
+    <div className={classNames('grid grid-cols-[repeat(24,minmax(0,1fr))] items-center')}>
+      <label
+        className={classNames(
+          colSet[labelCol.offest ? labelCol.offest : 1].start,
+          colSet[labelCol.span + labelCol.offest + 1].end
+        )}
+      >
         {label}
         {label && ':'}
       </label>
-      <div className={classNames(wrapperColClass.span, wrapperColClass.offest)}>
+      <div
+        className={classNames(
+          colSet[wrapperCol.offest ? wrapperCol.offest + wrapperColBase : wrapperColBase]
+            .start,
+          colSet[
+            wrapperCol.span ? wrapperCol.span + wrapperCol.offest + wrapperColBase : 25
+          ].end
+        )}
+      >
         {children}
       </div>
     </div>

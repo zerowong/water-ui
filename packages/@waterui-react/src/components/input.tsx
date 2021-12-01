@@ -1,8 +1,9 @@
-import { useState, createElement } from 'react'
+import React, { useState, createElement } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
 import { XCircleIcon, EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
 import { inputValueToStr, ComponentIdentifier } from '../utils'
+import type { Colors } from '../typings'
 
 interface InputProps extends React.ComponentProps<'input'> {
   /**
@@ -18,6 +19,10 @@ interface InputProps extends React.ComponentProps<'input'> {
    */
   bordered?: boolean
   /**
+   * 边框颜色
+   */
+  borderColor?: Colors
+  /**
    * 可以点击清除图标删除内容
    */
   clearable?: boolean
@@ -31,10 +36,20 @@ interface InputProps extends React.ComponentProps<'input'> {
   inline?: boolean
 }
 
+const colorMap = {
+  'teal': { 'border': 'border-teal-500', 'hoverBorder': 'hover:border-teal-500' },
+  'green': { 'border': 'border-green-500', 'hoverBorder': 'hover:border-green-500' },
+  'sky': { 'border': 'border-sky-500', 'hoverBorder': 'hover:border-sky-500' },
+  'blue': { 'border': 'border-blue-500', 'hoverBorder': 'hover:border-blue-500' },
+  'gray': { 'border': 'border-gray-500', 'hoverBorder': 'hover:border-gray-500' },
+  'red': { 'border': 'border-red-500', 'hoverBorder': 'hover:border-red-500' },
+}
+
 export function Input(props: InputProps) {
   const {
     bordered = true,
     clearable = false,
+    borderColor = 'sky',
     value,
     onChange,
     type,
@@ -128,8 +143,8 @@ export function Input(props: InputProps) {
           'w-75': inline,
           'cursor-text': !disabled,
           'bg-gray-300': disabled,
-          'hover:border-sky-500': bordered && !disabled,
-          'border-sky-500': bordered && inputIsFocus,
+          [colorMap[borderColor].hoverBorder]: bordered && !disabled,
+          [colorMap[borderColor].border]: bordered && inputIsFocus,
         },
         wrapperClassName
       )}
