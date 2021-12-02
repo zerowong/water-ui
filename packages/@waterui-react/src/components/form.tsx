@@ -2,24 +2,58 @@ import React, { Children, isValidElement, cloneElement } from 'react'
 import classNames from 'classnames'
 import { ComponentIdentifier } from '../utils'
 
+/**
+ * 24栅格系统
+ */
 export interface FormColumn {
+  /**
+   * 栅格占位格数
+   */
   span?: number
+  /**
+   * 栅格偏移格数
+   */
   offest?: number
 }
 
+/**
+ * 表单提交数据对象
+ */
 export type FormValues = Record<string, any>
 
-export interface FormProps {
+export interface FormProps extends React.ComponentProps<'form'> {
   children?: React.ReactNode
+  /**
+   * 标签布局
+   */
   labelCol?: FormColumn
+  /**
+   * 表单组件布局
+   */
   wrapperCol?: FormColumn
+  /**
+   * 提交表单回调事件
+   */
   onFinish?: (formData: FormValues) => void
+  /**
+   * 是否显示标签后的冒号
+   */
+  colon?: boolean
 }
 
 export function Form(props: FormProps) {
-  const { children, labelCol, wrapperCol, onFinish } = props
+  const {
+    children,
+    labelCol,
+    wrapperCol,
+    onFinish,
+    colon = true,
+    onSubmit,
+    ...rest
+  } = props
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    onSubmit?.(e)
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
     const fromValues: FormValues = {}
@@ -30,7 +64,7 @@ export function Form(props: FormProps) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} {...rest}>
       {Children.map(children, (item) => {
         if (
           isValidElement(item) &&
@@ -40,6 +74,7 @@ export function Form(props: FormProps) {
           const mergedProps = {
             labelCol: item.props.labelCol ?? labelCol,
             wrapperCol: item.props.wrapperCol ?? wrapperCol,
+            colon: item.props.colon ?? colon,
           }
           return cloneElement(item, mergedProps)
         } else {
@@ -52,9 +87,26 @@ export function Form(props: FormProps) {
 
 export interface FormItemProps {
   children?: React.ReactNode
+  /**
+   * 标签
+   */
   label?: React.ReactNode
+  /**
+   * 标签布局
+   */
   labelCol?: FormColumn
+  /**
+   * 表单组件布局
+   */
   wrapperCol?: FormColumn
+  /**
+   * 是否显示标签后的冒号
+   */
+  colon?: boolean
+  /**
+   * 字段名
+   */
+  name?: string
 }
 
 const colSet = [
@@ -86,17 +138,24 @@ const colSet = [
   { 'start': 'col-start-[25]', 'end': 'col-end-[25]' },
 ]
 
+const shouldInjectComponents: string[] = [
+  ComponentIdentifier.Input,
+  ComponentIdentifier.TextArea,
+]
+
 Form.Item = function FormItem(props: FormItemProps) {
   const {
     children,
     label,
     labelCol = { span: 1, offest: 0 },
-    wrapperCol = { span: 11, offest: 0 },
+    wrapperCol = { span: 0, offest: 0 },
+    colon = true,
+    name,
   } = props
 
   labelCol.span ?? (labelCol.span = 1)
   labelCol.offest ?? (labelCol.offest = 0)
-  wrapperCol.span ?? (wrapperCol.span = 11)
+  wrapperCol.span ?? (wrapperCol.span = 0)
   wrapperCol.offest ?? (wrapperCol.offest = 0)
   const wrapperColBase = labelCol.span + labelCol.offest + 1
 
@@ -105,11 +164,11 @@ Form.Item = function FormItem(props: FormItemProps) {
       <label
         className={classNames(
           colSet[labelCol.offest ? labelCol.offest : 1].start,
-          colSet[labelCol.span + labelCol.offest + 1].end
+          colSet[wrapperColBase].end
         )}
       >
         {label}
-        {label && ':'}
+        {label && colon && ':'}
       </label>
       <div
         className={classNames(
@@ -120,7 +179,18 @@ Form.Item = function FormItem(props: FormItemProps) {
           ].end
         )}
       >
-        {children}
+        {Children.map(children, (item) => {
+          if (!name) {
+            return item
+          }
+          if (isValidElement(item) && typeof item.type !== 'string') {
+            const key = Symbol.keyFor(item.type.prototype.$$typeof)
+            if (key && shouldInjectComponents.indexOf(key) !== -1) {
+              return cloneElement(item, { name })
+            }
+          }
+          return item
+        })}
       </div>
     </div>
   )

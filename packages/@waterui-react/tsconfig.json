@@ -12,7 +12,6 @@
     "isolatedModules": true,
     "noEmit": true,
     "noEmitOnError": true,
-    "removeComments": true,
     "jsx": "react",
     "baseUrl": "./",
     "declaration": true
