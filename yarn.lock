@@ -383,15 +383,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@heroicons/react@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "@heroicons/react@npm:1.0.5"
-  peerDependencies:
-    react: ">= 16"
-  checksum: 12114af19c17f69140cc7338e4cd12fe38098ad3ed79f02762106160655cde3ebdba58a2b26f1067f720786187364fd9465bc72f02aad85b0ead8172d76aa51d
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.6.0":
   version: 0.6.0
   resolution: "@humanwhocodes/config-array@npm:0.6.0"
@@ -651,7 +642,6 @@ __metadata:
   resolution: "@waterui/react@workspace:packages/@waterui-react"
   dependencies:
     "@headlessui/react": ^1.4.2
-    "@heroicons/react": ^1.0.5
     "@types/react": ^17.0.37
     "@types/react-dom": ^17.0.11
     "@typescript-eslint/eslint-plugin": ^5.5.0

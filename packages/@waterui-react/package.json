@@ -1,6 +1,6 @@
 {
   "name": "@waterui/react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A UI components library for React",
   "author": {
     "name": "zerowong",
@@ -28,11 +28,10 @@
     "build:esm": "tsc -b ./tsconfig.esm.json",
     "build:cjs": "tsc -b ./tsconfig.cjs.json",
     "build:umd": "vite build",
-    "build:css": "tailwindcss -c ./tailwind.config.js -i ./src/index.css -o ./dist/waterui.css -m"
+    "build:css": "tailwindcss -c ./tailwind.config.js -o ./dist/waterui.css -m"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.2",
-    "@heroicons/react": "^1.0.5",
     "classnames": "^2.3.1"
   },
   "peerDependencies": {

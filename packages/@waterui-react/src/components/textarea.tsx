@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
-import { XCircleIcon } from '@heroicons/react/solid'
+import { CloseFillIcon } from './icon'
 import { inputValueToStr, ComponentIdentifier } from '../utils'
 import type { Colors } from '../typings'
 
@@ -141,7 +141,7 @@ export function TextArea(props: TextAreaProps) {
         leaveTo="transform-gpu opacity-0 scale-0"
         className="ml-2"
       >
-        <XCircleIcon
+        <CloseFillIcon
           className="text-gray-400 cursor-pointer hover:text-gray-500 icon"
           onClick={resetValue}
         />

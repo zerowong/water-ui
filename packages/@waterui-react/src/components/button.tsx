@@ -85,9 +85,6 @@ const colorMap = {
   },
 }
 
-/**
- * 按钮
- */
 export function Button(props: ButtonProps) {
   const {
     loading = false,
@@ -140,7 +137,7 @@ export function Button(props: ButtonProps) {
             leave="transition-all ease-in duration-200"
             leaveFrom="transform-gpu opacity-100 scale-100 w-5"
             leaveTo="transform-gpu opacity-0 scale-0 w-0"
-            className="inline-block align-baseline"
+            className="inline-block align-baseline mr-1"
           >
             <LoadingIcon />
           </Transition>

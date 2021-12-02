@@ -1,7 +1,7 @@
 import React, { useState, createElement } from 'react'
 import classNames from 'classnames'
 import { Transition } from '@headlessui/react'
-import { XCircleIcon, EyeIcon, EyeOffIcon } from '@heroicons/react/solid'
+import { CloseFillIcon, EyeOpenIcon, EyeCloseIcon } from './icon'
 import { inputValueToStr, ComponentIdentifier } from '../utils'
 import type { Colors } from '../typings'
 
@@ -100,7 +100,7 @@ export function Input(props: InputProps) {
   const renderIcon = (type?: string) => {
     switch (type) {
       case 'password':
-        return createElement(innerType === 'password' ? EyeOffIcon : EyeIcon, {
+        return createElement(innerType === 'password' ? EyeCloseIcon : EyeOpenIcon, {
           className: 'text-gray-400 cursor-pointer hover:text-gray-500 text-lg ml-2 icon',
           onClick() {
             return setInnerType(innerType === 'password' ? 'text' : 'password')
@@ -124,8 +124,8 @@ export function Input(props: InputProps) {
             leaveTo="transform-gpu opacity-0 scale-0"
             className="ml-2"
           >
-            <XCircleIcon
-              className="text-gray-400 cursor-pointer hover:text-gray-500 icon"
+            <CloseFillIcon
+              className="text-gray-400 cursor-pointer hover:text-gray-500"
               onClick={resetValue}
             />
           </Transition>

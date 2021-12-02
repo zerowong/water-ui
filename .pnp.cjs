@@ -541,28 +541,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@heroicons/react", [
-        ["npm:1.0.5", {
-          "packageLocation": "./.yarn/cache/@heroicons-react-npm-1.0.5-c693e41c9d-12114af19c.zip/node_modules/@heroicons/react/",
-          "packageDependencies": [
-            ["@heroicons/react", "npm:1.0.5"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:7e7985f3981ce46a0ae6bfe198a6527f1d6e2d267277bb3d94cdf9adcfecf3cdd43d1ad892f74392ac324d41aa87388d452c0fc0526d82c2f52280079f095c46#npm:1.0.5", {
-          "packageLocation": "./.yarn/__virtual__/@heroicons-react-virtual-53b8de9733/0/cache/@heroicons-react-npm-1.0.5-c693e41c9d-12114af19c.zip/node_modules/@heroicons/react/",
-          "packageDependencies": [
-            ["@heroicons/react", "virtual:7e7985f3981ce46a0ae6bfe198a6527f1d6e2d267277bb3d94cdf9adcfecf3cdd43d1ad892f74392ac324d41aa87388d452c0fc0526d82c2f52280079f095c46#npm:1.0.5"],
-            ["@types/react", "npm:17.0.37"],
-            ["react", "npm:17.0.2"]
-          ],
-          "packagePeers": [
-            "@types/react",
-            "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["@humanwhocodes/config-array", [
         ["npm:0.6.0", {
           "packageLocation": "./.yarn/cache/@humanwhocodes-config-array-npm-0.6.0-da5f51e2f3-1025b07514.zip/node_modules/@humanwhocodes/config-array/",
@@ -902,7 +880,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@waterui/react", "workspace:packages/@waterui-react"],
             ["@headlessui/react", "virtual:7e7985f3981ce46a0ae6bfe198a6527f1d6e2d267277bb3d94cdf9adcfecf3cdd43d1ad892f74392ac324d41aa87388d452c0fc0526d82c2f52280079f095c46#npm:1.4.2"],
-            ["@heroicons/react", "virtual:7e7985f3981ce46a0ae6bfe198a6527f1d6e2d267277bb3d94cdf9adcfecf3cdd43d1ad892f74392ac324d41aa87388d452c0fc0526d82c2f52280079f095c46#npm:1.0.5"],
             ["@types/react", "npm:17.0.37"],
             ["@types/react-dom", "npm:17.0.11"],
             ["@typescript-eslint/eslint-plugin", "virtual:7e7985f3981ce46a0ae6bfe198a6527f1d6e2d267277bb3d94cdf9adcfecf3cdd43d1ad892f74392ac324d41aa87388d452c0fc0526d82c2f52280079f095c46#npm:5.5.0"],
