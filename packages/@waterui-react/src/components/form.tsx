@@ -58,7 +58,20 @@ export function Form(props: FormProps) {
     const formData = new FormData(e.currentTarget)
     const fromValues: FormValues = {}
     for (const [name, value] of formData) {
-      fromValues[name] = value
+      const nameArr = name.split(',')
+      if (nameArr.length === 1) {
+        fromValues[name] = value
+      } else {
+        let ptr = fromValues
+        for (let i = 0, l = nameArr.length; i < l; i++) {
+          if (i === l - 1) {
+            ptr[nameArr[i]] = value
+          } else {
+            ptr[nameArr[i]] = { ...ptr[nameArr[i]] }
+            ptr = ptr[nameArr[i]]
+          }
+        }
+      }
     }
     onFinish?.(fromValues)
   }
@@ -104,9 +117,9 @@ export interface FormItemProps {
    */
   colon?: boolean
   /**
-   * 字段名
+   * 字段名，支持数组
    */
-  name?: string
+  name?: string | string[]
 }
 
 const colSet = [
@@ -180,7 +193,7 @@ Form.Item = function FormItem(props: FormItemProps) {
         )}
       >
         {Children.map(children, (item) => {
-          if (!name) {
+          if ((Array.isArray(name) && name.length === 0) || !name) {
             return item
           }
           if (isValidElement(item) && typeof item.type !== 'string') {
