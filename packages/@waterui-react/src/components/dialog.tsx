@@ -47,11 +47,11 @@ export function Dialog(props: DialogProps) {
           <Transition.Child
             as={Fragment}
             enter="transition-all ease-out duration-300"
-            enterFrom="transform-gpu opacity-0 scale-95"
-            enterTo="transform-gpu opacity-100 scale-100"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
             leave="transition-all ease-in duration-200"
-            leaveFrom="transform-gpu opacity-100 scale-100"
-            leaveTo="transform-gpu opacity-0 scale-95"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
           >
             <div className="w-96 p-6 rounded-2xl shadow-md border border-gray-50 z-10">
               {title && (

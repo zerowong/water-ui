@@ -17,9 +17,11 @@
     "packages/*"
   ],
   "scripts": {
+    "upgrade:sdks": "yarn dlx @yarnpkg/sdks vscode",
+    "upgrade:yarn": "yarn set version latest",
+    "upgrade:deps": "yarn upgrade-interactive",
     "react": "yarn workspace @waterui/react",
-    "build": "yarn workspaces foreach run build",
-    "vsc-sdks": "yarn dlx @yarnpkg/sdks vscode"
+    "build": "yarn workspaces foreach run build"
   },
   "devDependencies": {
     "@types/node": "^16.11.11",

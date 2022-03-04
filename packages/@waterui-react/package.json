@@ -31,7 +31,7 @@
     "build:css": "tailwindcss -c ./tailwind.config.js -o ./dist/waterui.css -m"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.2",
+    "@headlessui/react": "^1.5.0",
     "classnames": "^2.3.1"
   },
   "peerDependencies": {
@@ -44,14 +44,14 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "@vitejs/plugin-react": "^1.1.0",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.2",
     "eslint": "^8.3.0",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "postcss": "^8.4.4",
+    "postcss": "^8.4.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.19",
+    "tailwindcss": "^3.0.23",
     "vite": "^2.6.14"
   },
   "keywords": [

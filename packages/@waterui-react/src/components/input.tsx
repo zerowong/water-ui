@@ -117,11 +117,11 @@ export function Input(props: InputProps) {
               !disabled
             }
             enter="transition ease-out duration-300"
-            enterFrom="transform-gpu opacity-0 scale-0"
-            enterTo="transform-gpu opacity-100 scale-100"
+            enterFrom="opacity-0 scale-0"
+            enterTo="opacity-100 scale-100"
             leave="transition ease-in duration-200"
-            leaveFrom="transform-gpu opacity-100 scale-100"
-            leaveTo="transform-gpu opacity-0 scale-0"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-0"
             className="ml-2"
           >
             <CloseFillIcon
