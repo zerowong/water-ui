@@ -45,42 +45,42 @@ const colorMap = {
     'bg': 'bg-teal-100',
     'text900': 'text-teal-900',
     'hoverBg': 'hover:bg-teal-200',
-    'focusRing': 'focus:ring-teal-300',
+    'focusRing': 'focus:ring-teal-300 focus-visible:ring-teal-300',
     'text500': 'text-teal-500',
   },
   'green': {
     'bg': 'bg-green-100',
     'text900': 'text-green-900',
     'hoverBg': 'hover:bg-green-200',
-    'focusRing': 'focus:ring-green-300',
+    'focusRing': 'focus:ring-green-300 focus-visible:ring-green-300',
     'text500': 'text-green-500',
   },
   'sky': {
     'bg': 'bg-sky-100',
     'text900': 'text-sky-900',
     'hoverBg': 'hover:bg-sky-200',
-    'focusRing': 'focus:ring-sky-300',
+    'focusRing': 'focus:ring-sky-300 focus-visible:ring-sky-300',
     'text500': 'text-sky-500',
   },
   'blue': {
     'bg': 'bg-blue-100',
     'text900': 'text-blue-900',
     'hoverBg': 'hover:bg-blue-200',
-    'focusRing': 'focus:ring-blue-300',
+    'focusRing': 'focus:ring-blue-300 focus-visible:ring-blue-300',
     'text500': 'text-blue-500',
   },
   'gray': {
     'bg': 'bg-gray-100',
     'text900': 'text-gray-900',
     'hoverBg': 'hover:bg-gray-200',
-    'focusRing': 'focus:ring-gray-300',
+    'focusRing': 'focus:ring-gray-300 focus-visible:ring-gray-300',
     'text500': 'text-gray-500',
   },
   'red': {
     'bg': 'bg-red-100',
     'text900': 'text-red-900',
     'hoverBg': 'hover:bg-red-200',
-    'focusRing': 'focus:ring-red-300',
+    'focusRing': 'focus:ring-red-300 focus-visible:ring-red-300',
     'text500': 'text-red-500',
   },
 }
@@ -104,15 +104,14 @@ export function Button(props: ButtonProps) {
   return (
     <button
       className={classNames(
-        'disabled:cursor-not-allowed disabled:opacity-50 my-2 h-10',
+        'disabled:cursor-not-allowed disabled:opacity-50',
         {
-          'rounded-md px-4 shadow-sm transition duration-300 text-center': !(
-            text || link
-          ),
-          // 文本、链接模式无背景色和文字颜色加深
-          [`${colorMap[color].bg} ${colorMap[color].text900}`]: !(text || link),
+          'rounded-md px-4 shadow-sm transition duration-300 text-center focus:outline-none':
+            !(text || link),
+          // 文本、链接模式无默认外边距、高度，背景色和文字颜色加深
+          [`my-2 h-10 ${colorMap[color].bg} ${colorMap[color].text900}`]: !(text || link),
           // 文本、链接模式在加载中、禁用时没有聚焦边框
-          [`focus:ring-2 ${colorMap[color].hoverBg} ${colorMap[color].focusRing}`]:
+          [`focus:ring-2 focus-visible:ring-2 ${colorMap[color].hoverBg} ${colorMap[color].focusRing}`]:
             !(text || link) && !(loading || disabled),
           // 文本、链接模式颜色
           [colorMap[color].text500]: text || link,
@@ -132,11 +131,11 @@ export function Button(props: ButtonProps) {
             as="span"
             show={loading && !icon}
             enter="transition-all ease-out duration-300"
-            enterFrom="transform-gpu opacity-0 scale-0 w-0"
-            enterTo="transform-gpu opacity-100 scale-100 w-5"
+            enterFrom="opacity-0 scale-0 w-0"
+            enterTo="opacity-100 scale-100 w-5"
             leave="transition-all ease-in duration-200"
-            leaveFrom="transform-gpu opacity-100 scale-100 w-5"
-            leaveTo="transform-gpu opacity-0 scale-0 w-0"
+            leaveFrom="opacity-100 scale-100 w-5"
+            leaveTo="opacity-0 scale-0 w-0"
             className="inline-block align-baseline mr-1"
           >
             <LoadingIcon />
